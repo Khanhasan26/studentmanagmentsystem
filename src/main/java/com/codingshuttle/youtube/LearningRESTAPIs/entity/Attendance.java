@@ -12,8 +12,13 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
+@Getter
+@Setter
 public class Attendance {
 
     @Id
@@ -24,10 +29,14 @@ public class Attendance {
 
     @Enumerated(EnumType.STRING)
     private AttendanceStatus status;
-
     
+    @ManyToOne
+    private Student student;
+
+    @Enumerated(EnumType.STRING)
     private Subjects subject;
 
+    @Enumerated(EnumType.STRING)
     private Department department;
     
 }
